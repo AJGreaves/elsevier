@@ -58,10 +58,10 @@ formAnswer.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
-    compareAnswer(questionData, givenAnswer);
+    respondAnswer(questionData, givenAnswer);
 });
 
-function compareAnswer(questionData, givenAnswer) {
+function respondAnswer(questionData, givenAnswer) {
     if (givenAnswer == questionData.answer) {
         correctAnswer();
     } 
@@ -70,6 +70,7 @@ function compareAnswer(questionData, givenAnswer) {
     }
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
+    $('input').css('pointer-events', 'none');
 }
 
 function correctAnswer() {
