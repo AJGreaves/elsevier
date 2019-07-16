@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
+/* Containers */
+
 /* CREDIT: code to fix footer to bottom of page even when there is not
 enough content to push it down taken from https://css-tricks.com/couple-takes-sticky-footer/ */
 html,
@@ -8,6 +10,8 @@ body {
 }
 
 body {
+    color: grey;
+    font-family: 'Roboto', sans-serif;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -15,6 +19,11 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+}
+
+.container-fluid,
+.row {
+    padding: 0;
 }
 
 .content {
@@ -38,13 +47,23 @@ body {
 }
 
 #side-info-bar {
-    background-color: lightgrey;
+    background-color: rgb(236, 236, 236);
     padding: 1.5rem;
+    max-width: 250px;
     height: 100vh;
     padding-top: 65px;
     position: absolute;
     right: 0;
     top: 0;
+}
+
+#side-info-bar p,
+#side-info-bar a {
+    font-size: 0.8rem;
+}
+
+#side-info-bar i.fa-copy {
+    font-size: 1.5rem;
 }
 
 #top-bar {
@@ -54,20 +73,53 @@ body {
     z-index: 10;
 }
 
+/* fonts */
+
+.key-concept-heading {
+    font-size: 1rem
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Icons, buttons, progress bar */
+
 .progress {
     height: 0.6rem;
     margin-bottom: 0.5rem;
 }
 
-.container-fluid,
-.row {
-    padding: 0;
+.circle-mark {
+    /* positions circle mark in line with radio checkbox */
+    margin-top: 0.27rem;
+    margin-left: -2.8rem;
+    position: absolute;
 }
 
-body {
-    color: grey;
-    font-family: 'Roboto', sans-serif;
+.fa-times-circle {
+    color: #c20606;
 }
+
+.fa-check-circle {
+    color: #015f06;
+}
+
+.fa-chevron-right {
+    margin-left: 1rem;
+}
+
+button {
+    background-color: rgb(0, 39, 110);
+    color: white;
+    border: none;
+    width: 85px;
+    height: 30px;
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+}
+
+/* radios, questions, response */
 
 #question-response {
     color: green;
@@ -109,31 +161,10 @@ label {
     width: 15px;
 }
 
-/* positions circle mark in line with radio checkbox */
-.circle-mark {
-    margin-top: 0.27rem;
-    margin-left: -2.8rem;
-    position: absolute;
-}
+/* Side info bar */
 
-.fa-times-circle {
-    color: #c20606;
-}
-
-.fa-check-circle {
-    color: #015f06;
-}
-
-.fa-chevron-right {
-    margin-left: 1rem;
-}
-
-button {
-    background-color: rgb(0, 39, 110);
-    color: white;
-    border: none;
-    width: 85px;
-    height: 30px;
-    font-size: 0.9rem;
-    margin-right: 0.3rem;
+.concept-box {
+    color: rgb(34, 34, 34);
+    background-color: #cccaca;
+    border-radius: 15px;
 }
