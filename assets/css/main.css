@@ -55,6 +55,7 @@ body {
     position: absolute;
     right: 0;
     top: 0;
+    display: none;
 }
 
 #side-info-bar p,
