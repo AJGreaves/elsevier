@@ -20,8 +20,7 @@ body {
   flex-direction: column;
 }
 
-.container-fluid,
-.row {
+.container-fluid {
   padding: 0;
 }
 
@@ -71,6 +70,10 @@ body {
   border-bottom: 2px solid lightgray;
   background-color: white;
   z-index: 10;
+}
+
+#email-signup-page {
+  margin-top: 20vh;
 }
 
 /* fonts */
