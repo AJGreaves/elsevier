@@ -1,6 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
+.page-wrapper{
+    height: 100vh;
+}
+
 #top-bar {
     height: 56px;
     border-bottom: 2px solid lightgray; 
@@ -49,6 +53,7 @@ label {
 .choice-response {
     padding-left: 1rem;
     border-left: 3px solid lightgray;
+    margin-bottom: 0.2rem;
 }
 
 .form-check {
@@ -73,4 +78,14 @@ label {
 
 .fa-check-circle {
     color: #015f06;
+}
+
+.bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4rem;
+    border-top: 2px solid lightgray; 
+    width: 100%;
+    padding: 1rem;
 }
