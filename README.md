@@ -17,3 +17,9 @@ Images provided by client to replicate:
 ![](https://i.ibb.co/4ZnfZVx/Clipboard02.jpg)
 
 ![](https://i.ibb.co/Kjvd8S4/Clipboard03.jpg)
+
+Images provided by client for questions to use:
+
+![](https://i.ibb.co/txT3ycF/image001.jpg)
+![](https://i.ibb.co/LYFfVMw/image002.jpg)
+![](https://i.ibb.co/Gv6vxxv/image003.jpg)
