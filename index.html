@@ -21,118 +21,111 @@
 </head>
 
 <body>
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row no-gutters page-row">
+    <form id="formAnswer" action="POST">
+        <div class="content">
 
-                <!-- Top bar -->
-                <div id="top-bar" class="col-12">
-                </div>
+            <div class="container-fluid">
+                <div class="row no-gutters page-row">
 
-                <!-- question column, col-12 when asking questions, col-9 col-xl-10 when giving answers -->
-                <div id="question-column" class="col-12">
-                    <div class="row no-gutters justify-content-center">
-                        <div class="col-10 col-lg-8 multiple-choice-wrapper">
-                            <div class="progress-bar-wrapper mt-3">
-                                <div id="progress-bar-text">Question 1 of 3</div>
-                                <div id="progress-bar" class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 0%"
-                                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <!-- Top bar -->
+                    <div id="top-bar" class="col-12">
+                    </div>
+
+                    <!-- question column, col-12 when asking questions, col-9 col-xl-10 when giving answers -->
+                    <div id="question-column" class="col-12">
+                        <div class="row no-gutters justify-content-center">
+                            <div class="col-10 col-lg-8 multiple-choice-wrapper">
+                                <div class="progress-bar-wrapper mt-3">
+                                    <div id="progress-bar-text"></div>
+                                    <div id="progress-bar" class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 0%"
+                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <p id="questionIntro" class="mb-1"></p>
-                            <p id="question"></p>
-                            <p id="question-response" class="d-none">Your answer is correct.</p>
-                            <div class="form-check">
-                                <i class="circle-mark fas fa-check-circle d-none"></i>
-                                <input class="form-check-input radio" type="radio" name="radios" id="option1"
-                                    value="option1">
-                                <label id="option1Label" class="form-check-label" for="option1">
-                                    A. Paris1
-                                </label>
-                                <div class="option1-response-box d-none">
-                                    <div class="radio-response">Correct</div>
-                                    <p class="choice-response">Paris is the capital of France. (q1)</p>
+                                <p id="questionIntro" class="mb-1"></p>
+                                <p id="question"></p>
+                                <p id="question-response" class="d-none"></p>
+                                <div class="form-check">
+                                    <i class="circle-mark fas fa-check-circle d-none"></i>
+                                    <input class="form-check-input radio" type="radio" name="radios" id="option1"
+                                        value="option1" required>
+                                    <label id="option1Label" class="form-check-label" for="option1"></label>
+                                    <div id="option1-response-box">
+                                        <div class="radio-response"></div>
+                                        <p class="choice-response"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-check">
-                                <i class="circle-mark fas fa-times-circle d-none"></i>
-                                <input class="form-check-input radio" type="radio" name="radios" id="option2"
-                                    value="option2">
-                                <label id="option2Label" class="form-times-label" for="option2">
-                                    B. Rome1
-                                </label>
-                                <div class="option2-response-box d-none">
-                                    <div class="radio-response">Incorrect</div>
-                                    <p class="choice-response">Rome is the capital of Italy. (q1)</p>
+                                <div class="form-check">
+                                    <i class="circle-mark fas fa-times-circle d-none"></i>
+                                    <input class="form-check-input radio" type="radio" name="radios" id="option2"
+                                        value="option2">
+                                    <label id="option2Label" class="form-times-label" for="option2"></label>
+                                    <div id="option2-response-box">
+                                        <div class="radio-response"></div>
+                                        <p class="choice-response"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-check">
-                                <i class="circle-mark fas fa-times-circle d-none"></i>
-                                <input class="form-check-input radio" type="radio" name="radios" id="option3"
-                                    value="option3">
-                                <label id="option3Label" class="form-check-label" for="option3">
-                                    C. London1
-                                </label>
-                                <div class="option3-response-box d-none">
-                                    <div class="radio-response">Incorrect</div>
-                                    <p class="choice-response">London is the capital of England. (q1)</p>
+                                <div class="form-check">
+                                    <i class="circle-mark fas fa-times-circle d-none"></i>
+                                    <input class="form-check-input radio" type="radio" name="radios" id="option3"
+                                        value="option3">
+                                    <label id="option3Label" class="form-check-label" for="option3"></label>
+                                    <div id="option3-response-box">
+                                        <div class="radio-response"></div>
+                                        <p class="choice-response"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-check">
-                                <i class="circle-mark fas fa-times-circle d-none"></i>
-                                <input class="form-check-input radio" type="radio" name="radios" id="option4"
-                                    value="option3">
-                                <label id="option4Label" class="form-check-label" for="option4">
-                                    D. Amsterdam1
-                                </label>
-                                <div class="option4-response-box d-none d-none">
-                                    <div class="radio-response">Incorrect</div>
-                                    <p class="choice-response">Amsterdam is the capital of The Netherlands. (q1)</p>
+                                <div class="form-check">
+                                    <i class="circle-mark fas fa-times-circle d-none"></i>
+                                    <input class="form-check-input radio" type="radio" name="radios" id="option4"
+                                        value="option4">
+                                    <label id="option4Label" class="form-check-label" for="option4"></label>
+                                    <div id="option4-response-box">
+                                        <div class="radio-response"></div>
+                                        <p class="choice-response"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-check">
-                                <i class="circle-mark fas fa-times-circle d-none"></i>
-                                <input class="form-check-input radio" type="radio" name="radios" id="option5"
-                                    value="option3">
-                                <label id="option5Label" class="form-check-label" for="option5">
-                                    E. Reykjavik1
-                                </label>
-                                <div class="option5-response-box d-none">
-                                    <div class="radio-response">Incorrect</div>
-                                    <p class="choice-response">Reykjavik is the capital of Iceland. (q1)</p>
+                                <div class="form-check">
+                                    <i class="circle-mark fas fa-times-circle d-none"></i>
+                                    <input class="form-check-input radio" type="radio" name="radios" id="option5"
+                                        value="option5">
+                                    <label id="option5Label" class="form-check-label" for="option5"></label>
+                                    <div id="option5-response-box">
+                                        <div class="radio-response"></div>
+                                        <p class="choice-response"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- side column, d-none when asking questions, col-3 when giving answers -->
-                <div id="side-info-bar" class="col-3">
-                    <p class="key-concept-heading mb-1">Key Concepts</p>
-                    <p class="concept-box text-center py-1">branch of abdominal aorta</p>
-                    <h2 id="percent-right">32%</h2>
-                    <p>Percentage of students who got this right.</p>
-                    <h2>22 sec.</h2>
-                    <p>Time you spent answering this question.</p>
-                    <hr>
-                    <div>
-                        <i class="far fa-copy"></i>
-                        <a href="#" aria-label="copy this question">Copy Question</a>
+                    <!-- side column, d-none when asking questions, col-3 when giving answers -->
+                    <div id="side-info-bar" class="col-3">
+                        <p class="key-concept-heading mb-1">Key Concepts</p>
+                        <p class="concept-box text-center py-1">branch of abdominal aorta</p>
+                        <h2 id="percent-right">32%</h2>
+                        <p>Percentage of students who got this right.</p>
+                        <h2>22 sec.</h2>
+                        <p>Time you spent answering this question.</p>
+                        <hr>
+                        <div>
+                            <i class="far fa-copy"></i>
+                            <a href="#" aria-label="copy this question">Copy Question</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="bottom-bar" class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <button type="submit">Confident</button>
-                <button type="submit">Not Sure</button>
-                <button class="fade">Next <i class="fas fa-chevron-right"></i></button>
+        <div id="bottom-bar" class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <button id="confident" type="submit">Confident</button>
+                    <button id="unsure" type="submit">Not Sure</button>
+                    <button class="fade">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
     <!-- scripts -->
