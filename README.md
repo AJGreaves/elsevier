@@ -1,5 +1,5 @@
 # Elsevier
-A one page web app for use at conferences, to demo medical study learning environment and collect emails for newsletter.
+_A one page web app for use at conferences, to demo medical study learning environment and collect emails for newsletter._
 
 3 multiple choice questions and a signup form for the Elsevier newsletter.
 
@@ -10,7 +10,7 @@ A one page web app for use at conferences, to demo medical study learning enviro
 - Waiting for brand colours, images, fonts etc that need replicating from client. 
 - Web app will be an iPad and/or a lower/mid resolution laptop. Mobile responsiveness is not necessary.
 
-Images provided by client to replicate: 
+### Images provided by client to replicate: 
 
 ![](https://i.ibb.co/njW7WKS/Clipboard01.jpg)
 
@@ -18,8 +18,11 @@ Images provided by client to replicate:
 
 ![](https://i.ibb.co/Kjvd8S4/Clipboard03.jpg)
 
-Images provided by client for questions to use:
+
+### Images provided by client for questions to use:
 
 ![](https://i.ibb.co/txT3ycF/image001.jpg)
+
 ![](https://i.ibb.co/LYFfVMw/image002.jpg)
+
 ![](https://i.ibb.co/Gv6vxxv/image003.jpg)
