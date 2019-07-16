@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+#top-bar {
+    height: 56px;
+    border-bottom: 2px solid lightgray; 
+}
+
+.progress {
+    height: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.container-fluid,
+.row {
+    padding: 0;
+}
+
+body {
+    color: grey;
+    font-family: 'Roboto', sans-serif;
+}
+
+#question-response {
+    color: green;
+    font-weight: 400;
+}
+
+#progress-bar-text,
+label {
+    font-size: 0.8rem;
+}
+
+
+.radio-response,
+.choice-response {
+    font-size: 0.75rem;
+}
+
+.radio-response {
+    color: #c20606;
+    font-style: italic;
+}
+
+.choice-response {
+    padding-left: 1rem;
+    border-left: 3px solid lightgray;
+}
+
+.form-check {
+    padding-left: 3rem;
+}
+
+.radio {
+    height: 15px;
+    width: 15px;
+}
+
+/* positions circle mark in line with radio checkbox */
+.circle-mark {
+    margin-top: 0.27rem;
+    margin-left: -2.8rem;
+    position: absolute;
+}
