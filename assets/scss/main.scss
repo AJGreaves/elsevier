@@ -97,9 +97,10 @@ a:hover {
 
 .circle-mark {
     /* positions circle mark in line with radio checkbox */
-    margin-top: 0.27rem;
-    margin-left: -2.8rem;
+    margin-left: -1.5rem;
+    margin-top: 0.05rem;
     position: absolute;
+    font-size: 1.2rem;
 }
 
 .fa-times-circle {
@@ -162,7 +163,7 @@ label {
 
 /* custom radio code from https://codepen.io/triss90/pen/XNEdRe/*/
 $color1: #f4f4f4;
-$color2: rgb(255, 127, 67);
+$color2: #ff7f43;
 
 .radio {
     margin: 0.5rem;

@@ -80,9 +80,14 @@ function respondAnswer(questionData, givenAnswer) {
     $('#option5-response-box .choice-response')
     .text(questionData.choiceResponses.option5);
 
+    let correctCircle = '#circle-' + questionData.answer;
+    $(correctCircle).addClass('fa-check-circle').removeClass('fa-times-circle, d-none');
+
+    // $('.radio input[type="radio"]:checked').css('background-color', '#b4b4b4');
+
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
-    $('input').css('pointer-events', 'none');
+    $('.radio').css('pointer-events', 'none');
 }
 
 function correctAnswer(questionData) {
@@ -91,10 +96,8 @@ function correctAnswer(questionData) {
     .css('color', '#008000')
     .removeClass('d-none');
 
-    let correct = '#' + questionData.answer + '-response-box .radio-response';
-    $(correct)
-    .text('Correct').css('color', '#015f06');
-
+    let correctMsg = '#' + questionData.answer + '-response-box .radio-response';
+    $(correctMsg).text('Correct').css('color', '#015f06');
 }
 
 function incorrectAnswer(questionData, givenAnswer) {
@@ -102,6 +105,9 @@ function incorrectAnswer(questionData, givenAnswer) {
     .text('Your answer is incorrect.')
     .css('color', '#c20606')
     .removeClass('d-none');
+
+    let incorrectCircle = '#circle-' + givenAnswer;
+    $(incorrectCircle).addClass('fa-times-circle').removeClass('fa-check-circle, d-none');
 
     let incorrect = '#' + givenAnswer + '-response-box .radio-response';
     let correct = '#' + questionData.answer + '-response-box .radio-response';
