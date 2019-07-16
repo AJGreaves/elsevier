@@ -41,11 +41,11 @@ function displayQuestion(questionData) {
     return;
 }
 
-$('#confident').click(function() {
+$('#confident-btn').click(function() {
     confident =+ 1;
 })
 
-$('#unsure').click(function() {
+$('#unsure-btn').click(function() {
     unsure =+ 1;
 })
 
@@ -63,15 +63,25 @@ formAnswer.addEventListener('submit', (event) => {
 
 function compareAnswer(questionData, givenAnswer) {
     if (givenAnswer == questionData.answer) {
-        $('#question-response')
-        .text('Your answer is correct.')
-        .css('color', '#008000')
-        .removeClass('d-none');
+        correctAnswer();
     } 
     else {
-        $('#question-response')
-        .text('Your answer is incorrect.')
-        .css('color', '#c20606')
-        .removeClass('d-none');
+        incorrectAnswer();
     }
+    $('#confident-btn, #unsure-btn').addClass('d-none');
+    $('#next-btn').removeClass('d-none');
+}
+
+function correctAnswer() {
+    $('#question-response')
+    .text('Your answer is correct.')
+    .css('color', '#008000')
+    .removeClass('d-none');
+}
+
+function incorrectAnswer() {
+    $('#question-response')
+    .text('Your answer is incorrect.')
+    .css('color', '#c20606')
+    .removeClass('d-none');
 }
