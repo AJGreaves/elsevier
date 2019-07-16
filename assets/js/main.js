@@ -43,15 +43,13 @@ function displayQuestion(questionData) {
 
 $('#confident-btn').click(function() {
     confident =+ 1;
+    return;
 })
 
 $('#unsure-btn').click(function() {
     unsure =+ 1;
+    return;
 })
-
-function displayAnswer(questionData) {
-
-}
 
 formAnswer.addEventListener('submit', (event) => {
     // prevents default behaviour of submit button to refresh page
@@ -59,6 +57,7 @@ formAnswer.addEventListener('submit', (event) => {
 
     const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
     respondAnswer(questionData, givenAnswer);
+    return;
 });
 
 function respondAnswer(questionData, givenAnswer) {
@@ -88,6 +87,8 @@ function respondAnswer(questionData, givenAnswer) {
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
     $('.radio').css('pointer-events', 'none');
+
+    return;
 }
 
 function correctAnswer(questionData) {
@@ -98,6 +99,7 @@ function correctAnswer(questionData) {
 
     let correctMsg = '#' + questionData.answer + '-response-box .radio-response';
     $(correctMsg).text('Correct').css('color', '#015f06');
+    return;
 }
 
 function incorrectAnswer(questionData, givenAnswer) {
@@ -115,4 +117,5 @@ function incorrectAnswer(questionData, givenAnswer) {
     .text('Incorrect').css('color', '#c20606');
     $(correct)
     .text('Correct').css('color', '#015f06');
+    return;
 }
