@@ -126,6 +126,16 @@ button {
   margin-top: 40vh;
 }
 
+#restart-quiz-btn {
+  width: 100px;
+  position: absolute;
+  margin: 16px;
+  bottom: 0;
+  right: 0;
+  z-index: 200;
+  background-color: #ff7f43;
+}
+
 /* radios, questions, response */
 #question-response {
   font-weight: 400;

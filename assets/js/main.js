@@ -21,7 +21,11 @@ fetch('assets/data/test.json')
 
 $('#start-btn').click(function () {
     $('#start-page').addClass('d-none');
-    $('#formAnswer').removeClass('d-none');
+    $('#formAnswer, #restart-quiz-btn').removeClass('d-none');
+})
+
+$('#restart-quiz-btn').click(function () {
+    location.reload(); 
 })
 
 function getQuestion(allQuestions) {
@@ -31,7 +35,7 @@ function getQuestion(allQuestions) {
 
 function displayQuestion(questionData) {
 
-    let progressText = "Question " + activePage + "of 3"
+    let progressText = "Question " + activePage + " of 3"
     $('#progress-bar-text').text(progressText);
 
     /* Question */
@@ -158,7 +162,7 @@ $('#next-btn').click(function () {
     } else {
         $('#formAnswer').addClass('d-none');
         $('#email-signup-page').removeClass('d-none');
-        console.log('quiz complete!');
+        return;
     }
 })
 
@@ -181,3 +185,34 @@ function resetPage() {
     displayQuestion(questionData);
     return;
 }
+
+/**
+ * Send email with form data. UserID deliberately obscured using https://obfuscator.io/
+ */
+const emailSignupForm = document.querySelector('#emailSignupForm');
+
+emailSignupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = {
+        service_id: "gmail",
+        template_id: "elsevier",
+        user_id: "user_CQSk7h9Wyuw2xLhYG0hBX",
+        template_params: {
+            "firstName": emailSignupForm.firstName.value,
+            "lastName": emailSignupForm.lastName.value,
+            "email": emailSignupForm.email.value
+        }
+    };
+
+    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json'
+    }).done(function () {
+        alert('Subscription confirmed');
+        location.reload(); 
+    }).fail(function (error) {
+        console.log('Oops... ' + JSON.stringify(error));
+        alert('Oops something went wrong, please try again.');
+    });
+});

@@ -177,7 +177,7 @@
         <div class="row no-gutters justify-content-center">
             <div class="col-10 col-md-6 col-lg-5 col-xl-4">
                 <h3>Sign up for our mailing list!</h3>
-                <form action="POST">
+                <form id="emailSignupForm" action="POST">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
                         <input id="firstName" type="text" name="firstName" class="form-control" required>
@@ -195,6 +195,8 @@
             </div>
         </div>
     </div>
+
+    <button id="restart-quiz-btn" class="d-none" type="button">Restart quiz</button>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
