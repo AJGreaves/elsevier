@@ -3,16 +3,13 @@ fetch('assets/data/test.json')
         return data.json();
     })
     .then(function (data) {
-        displayQuestions(data);
+        let question = getQuestion(data);
+        console.log(question);
     });
 
-let page = 1;
+let activePage = 1;
 
-function displayQuestions(data) {
-    let question = data.find(getPage);
-    console.log(question);
-}
-
-function getPage() {
-    return page;
+function getQuestion(data) {
+    let question = data.find(x => x.id === activePage);
+    return question;
 }
