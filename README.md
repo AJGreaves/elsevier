@@ -32,4 +32,7 @@ _A one page web app for use at conferences, to demo medical study learning envir
 - Is the "Copy Question" button functionality required? 
     - If yes, do you want a copy of only the question or also the answer?
     - If no, do you want me to leave the icon and text in?
+- Is the "Study Mode is ON" button functionality required?
+    - If yes, what does it do?
+    - If no, do you want me to leave the text and button it and just have it not do anything?
 - Waiting for brand colours, images, fonts etc that need replicating.
