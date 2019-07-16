@@ -5,8 +5,11 @@ let confident = 0;
 let unsure = 0;
 let allQuestions = [];
 let questionData = [];
+let timer = 0;
 
 let formAnswer = document.querySelector('#formAnswer');
+
+
 
 fetch('assets/data/test.json')
     .then(function (data) {
@@ -99,6 +102,8 @@ function respondAnswer(questionData, givenAnswer) {
 
     $('.radio-orange').addClass('radio-grey').removeClass('radio-orange');
 
+    $('#percent-correct').text(questionData.percentCorrect);
+
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
     $('.radio').css('pointer-events', 'none');
@@ -163,3 +168,4 @@ function resetPage() {
     displayQuestion(questionData);
     return;
 }
+
