@@ -65,8 +65,9 @@ body {
   font-size: 1.5rem;
 }
 
-#top-bar {
+.top-bar {
   height: 56px;
+  width: 100%;
   border-bottom: 2px solid lightgray;
   background-color: white;
   z-index: 10;
@@ -115,6 +116,11 @@ button {
   height: 30px;
   font-size: 0.9rem;
   margin-right: 0.3rem;
+}
+
+#start-btn {
+  margin: 0;
+  margin-top: 40vh;
 }
 
 /* radios, questions, response */
