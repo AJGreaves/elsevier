@@ -63,26 +63,50 @@ formAnswer.addEventListener('submit', (event) => {
 
 function respondAnswer(questionData, givenAnswer) {
     if (givenAnswer == questionData.answer) {
-        correctAnswer();
+        correctAnswer(questionData, givenAnswer);
     } 
     else {
-        incorrectAnswer();
+        incorrectAnswer(questionData, givenAnswer);
     }
+
+    $('#option1-response-box .choice-response')
+    .text(questionData.choiceResponses.option1);
+    $('#option2-response-box .choice-response')
+    .text(questionData.choiceResponses.option2);
+    $('#option3-response-box .choice-response')
+    .text(questionData.choiceResponses.option3);
+    $('#option4-response-box .choice-response')
+    .text(questionData.choiceResponses.option4);
+    $('#option5-response-box .choice-response')
+    .text(questionData.choiceResponses.option5);
+
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
     $('input').css('pointer-events', 'none');
 }
 
-function correctAnswer() {
+function correctAnswer(questionData) {
     $('#question-response')
     .text('Your answer is correct.')
     .css('color', '#008000')
     .removeClass('d-none');
+
+    let correct = '#' + questionData.answer + '-response-box .radio-response';
+    $(correct)
+    .text('Correct').css('color', '#015f06');
+
 }
 
-function incorrectAnswer() {
+function incorrectAnswer(questionData, givenAnswer) {
     $('#question-response')
     .text('Your answer is incorrect.')
     .css('color', '#c20606')
     .removeClass('d-none');
+
+    let incorrect = '#' + givenAnswer + '-response-box .radio-response';
+    let correct = '#' + questionData.answer + '-response-box .radio-response';
+    $(incorrect)
+    .text('Incorrect').css('color', '#c20606');
+    $(correct)
+    .text('Correct').css('color', '#015f06');
 }

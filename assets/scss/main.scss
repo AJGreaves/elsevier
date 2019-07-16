@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
+/* Variables */
+
+$red: #c20606;
+
 /* Containers */
 
 /* CREDIT: code to fix footer to bottom of page even when there is not
@@ -99,7 +103,7 @@ a:hover {
 }
 
 .fa-times-circle {
-    color: #c20606;
+    color: $red;
 }
 
 .fa-check-circle {
@@ -141,7 +145,7 @@ label {
 }
 
 .radio-response {
-    color: #c20606;
+    color: $red;
     font-style: italic;
     margin-bottom: 0.5rem;
 }
