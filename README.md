@@ -36,3 +36,8 @@ _A one page web app for use at conferences, to demo medical study learning envir
     - If yes, what does it do?
     - If no, do you want me to leave the text and button it and just have it not do anything?
 - Waiting for brand colours, images, fonts etc that need replicating.
+
+## Credits
+
+### Code
+ - custom radio code from https://codepen.io/triss90/pen/XNEdRe/*/
