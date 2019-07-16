@@ -3,6 +3,7 @@
 let activePage = 1;
 let confident = 0;
 let unsure = 0;
+let allQuestions = [];
 let questionData = [];
 
 let formAnswer = document.querySelector('#formAnswer');
@@ -12,13 +13,14 @@ fetch('assets/data/test.json')
         return data.json();
     })
     .then(function (data) {
-        questionData = getQuestion(data);
+        allQuestions = data;
+        questionData = getQuestion(allQuestions);
         displayQuestion(questionData);
     })
     .catch(err => console.log(err));
 
-function getQuestion(data) {
-    let question = data.find(x => x.id === activePage);
+function getQuestion(allQuestions) {
+    let question = allQuestions.find(x => x.id === activePage);
     return question;
 }
 
@@ -42,12 +44,12 @@ function displayQuestion(questionData) {
 }
 
 $('#confident-btn').click(function() {
-    confident =+ 1;
+    confident++;
     return;
 })
 
 $('#unsure-btn').click(function() {
-    unsure =+ 1;
+    unsure++;
     return;
 })
 
@@ -81,7 +83,10 @@ function respondAnswer(questionData, givenAnswer) {
     .text(questionData.choiceResponses.option5);
 
     let correctCircle = '#circle-' + questionData.answer;
-    $(correctCircle).addClass('fa-check-circle').removeClass('fa-times-circle, d-none');
+    $(correctCircle)
+    .addClass('fa-check-circle')
+    .removeClass('fa-times-circle')
+    .parent().removeClass('d-none');
 
     $('.radio-orange').addClass('radio-grey').removeClass('radio-orange');
 
@@ -110,13 +115,32 @@ function incorrectAnswer(questionData, givenAnswer) {
     .removeClass('d-none');
 
     let incorrectCircle = '#circle-' + givenAnswer;
-    $(incorrectCircle).addClass('fa-times-circle').removeClass('fa-check-circle, d-none');
+    $(incorrectCircle)
+    .addClass('fa-times-circle')
+    .removeClass('fa-check-circle')
+    .parent().removeClass('d-none');
 
     let incorrect = '#' + givenAnswer + '-response-box .radio-response';
     let correct = '#' + questionData.answer + '-response-box .radio-response';
-    $(incorrect)
-    .text('Incorrect').css('color', '#c20606');
-    $(correct)
-    .text('Correct').css('color', '#015f06');
+    $(incorrect).text('Incorrect').css('color', '#c20606');
+    $(correct).text('Correct').css('color', '#015f06');
+    return;
+}
+
+$('#next-btn').click(function() {
+    activePage++;
+    resetPage();
+})
+
+function resetPage() {
+    $('.radio').css('pointer-events', 'auto');
+    $('.circle-wrapper, .radio-response, .choice-response, #question-response')
+    .addClass('d-none');
+
+    $('#confident-btn, #unsure-btn').removeClass('d-none');
+    $('#next-btn').addClass('d-none');
+
+    questionData = getQuestion(allQuestions);
+    displayQuestion(questionData);
     return;
 }
