@@ -16,7 +16,8 @@
         "option4":"Amsterdam is the capital of The Netherlands. (q1)",
         "option5":"Reykjavik is the capital of Iceland. (q1)"
     },
-    "answer": "option1"
+    "answer": "option1",
+    "percentCorrect": "11%"
 },
 {
     "id": 2,
@@ -36,7 +37,8 @@
         "option4":"Amsterdam is the capital of The Netherlands. (q2)",
         "option5":"Reykjavik is the capital of Iceland. (q2)"
     },
-    "answer": "option3"
+    "answer": "option3",
+    "percentCorrect": "22%"
 },
 {
     "id": 3,
@@ -56,5 +58,6 @@
         "option4":"Amsterdam is the capital of The Netherlands. (q3)",
         "option5":"Reykjavik is the capital of Iceland. (q3)"
     },
-    "answer": "option4"
+    "answer": "option4",
+    "percentCorrect": "33%"
 }]
