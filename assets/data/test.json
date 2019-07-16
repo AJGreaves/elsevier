@@ -1,0 +1,60 @@
+[{
+    "id": 1,
+    "questionIntro": "This question is about cities",
+    "question": "What is the capital of France?",
+    "choices": {
+        "option1": "Paris",
+        "option2": "Rome",
+        "option3": "London",
+        "option4": "Amsterdam",
+        "option5": "Reykjavik"
+    },
+    "choiceResponses": {
+        "option1":"Paris is the capital of France (q1)",
+        "option2":"Rome is the capital of Italy (q1)",
+        "option3":"London is the capital of England (q1)",
+        "option4":"Amsterdam is the capital of The Netherlands (q1)",
+        "option5":"Reykjavik is the capital of Iceland (q1)"
+    },
+    "answer": "option1"
+},
+{
+    "id": 2,
+    "questionIntro": "This question is about cities",
+    "question": "What is the capital of England?",
+    "choices": {
+        "option1": "Paris",
+        "option2": "Rome",
+        "option3": "London",
+        "option4": "Amsterdam",
+        "option5": "Reykjavik"
+    },
+    "choiceResponses": {
+        "option1":"Paris is the capital of France (q2)",
+        "option2":"Rome is the capital of Italy (q2)",
+        "option3":"London is the capital of England (q2)",
+        "option4":"Amsterdam is the capital of The Netherlands (q2)",
+        "option5":"Reykjavik is the capital of Iceland (q2)"
+    },
+    "answer": "option3"
+},
+{
+    "id": 3,
+    "questionIntro": "This question is about cities",
+    "question": "What is the capital of The Netherlands?",
+    "choices": {
+        "option1": "Paris",
+        "option2": "Rome",
+        "option3": "London",
+        "option4": "Amsterdam",
+        "option5": "Reykjavik"
+    },
+    "choiceResponses": {
+        "option1":"Paris is the capital of France (q3)",
+        "option2":"Rome is the capital of Italy (q3)",
+        "option3":"London is the capital of England (q3)",
+        "option4":"Amsterdam is the capital of The Netherlands (q3)",
+        "option5":"Reykjavik is the capital of Iceland (q3)"
+    },
+    "answer": "option4"
+}]
