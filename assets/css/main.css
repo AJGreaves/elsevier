@@ -1,13 +1,57 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
-.page-wrapper{
+/* CREDIT: code to fix footer to bottom of page even when there is not
+enough content to push it down taken from https://css-tricks.com/couple-takes-sticky-footer/ */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+#bottom-bar {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    height: 4rem;
+    border-top: 2px solid lightgray;
+    width: 100%;
+    padding: 1rem;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+#side-info-bar {
+    background-color: lightgrey;
+    padding: 1.5rem;
     height: 100vh;
+    padding-top: 65px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 #top-bar {
     height: 56px;
-    border-bottom: 2px solid lightgray; 
+    border-bottom: 2px solid lightgray;
+    background-color: white;
+    z-index: 10;
 }
 
 .progress {
@@ -82,16 +126,6 @@ label {
 
 .fa-chevron-right {
     margin-left: 1rem;
-}
-
-.bottom-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4rem;
-    border-top: 2px solid lightgray; 
-    width: 100%;
-    padding: 1rem;
 }
 
 button {
