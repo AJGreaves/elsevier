@@ -103,6 +103,9 @@ function respondAnswer(questionData, givenAnswer) {
     $('#next-btn').removeClass('d-none');
     $('.radio').css('pointer-events', 'none');
 
+    $('#question-column').removeClass('col-12').addClass('col-9');
+    $('#side-info-bar').removeClass('d-none');
+
     return;
 }
 
@@ -152,6 +155,9 @@ function resetPage() {
     $('input').prop('checked', false);
 
     $('.radio-grey').addClass('radio-orange').removeClass('radio-grey');
+
+    $('#question-column').removeClass('col-9').addClass('col-12');
+    $('#side-info-bar').addClass('d-none');
 
     questionData = getQuestion(allQuestions);
     displayQuestion(questionData);
