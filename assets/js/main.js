@@ -61,6 +61,7 @@ formAnswer.addEventListener('submit', (event) => {
 });
 
 function respondAnswer(questionData, givenAnswer) {
+
     if (givenAnswer == questionData.answer) {
         correctAnswer(questionData, givenAnswer);
     } 
@@ -82,7 +83,7 @@ function respondAnswer(questionData, givenAnswer) {
     let correctCircle = '#circle-' + questionData.answer;
     $(correctCircle).addClass('fa-check-circle').removeClass('fa-times-circle, d-none');
 
-    // $('.radio input[type="radio"]:checked').css('background-color', '#b4b4b4');
+    $('.radio-orange').addClass('radio-grey').removeClass('radio-orange');
 
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
