@@ -80,6 +80,10 @@ label {
     color: #015f06;
 }
 
+.fa-chevron-right {
+    margin-left: 1rem;
+}
+
 .bottom-bar {
     position: absolute;
     bottom: 0;
@@ -88,4 +92,14 @@ label {
     border-top: 2px solid lightgray; 
     width: 100%;
     padding: 1rem;
+}
+
+button {
+    background-color: rgb(0, 39, 110);
+    color: white;
+    border: none;
+    width: 85px;
+    height: 30px;
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
 }
