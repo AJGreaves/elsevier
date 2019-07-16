@@ -34,11 +34,11 @@ function displayQuestion(questionData) {
     $('#question').text(questionData.question);
 
     /* Options */
-    $('#option1Label').text('A: ' + questionData.choices.option1);
-    $('#option2Label').text('B: ' + questionData.choices.option2);
-    $('#option3Label').text('C: ' + questionData.choices.option3);
-    $('#option4Label').text('D: ' + questionData.choices.option4);
-    $('#option5Label').text('E: ' + questionData.choices.option5);
+    $('#option1Label').text('A: ' + questionData.choices.option1).removeClass('d-none');
+    $('#option2Label').text('B: ' + questionData.choices.option2).removeClass('d-none');
+    $('#option3Label').text('C: ' + questionData.choices.option3).removeClass('d-none');
+    $('#option4Label').text('D: ' + questionData.choices.option4).removeClass('d-none');
+    $('#option5Label').text('E: ' + questionData.choices.option5).removeClass('d-none');
 
     return;
 }
@@ -72,15 +72,24 @@ function respondAnswer(questionData, givenAnswer) {
     }
 
     $('#option1-response-box .choice-response')
-    .text(questionData.choiceResponses.option1);
+    .text(questionData.choiceResponses.option1)
+    .removeClass('d-none');
+
     $('#option2-response-box .choice-response')
-    .text(questionData.choiceResponses.option2);
+    .text(questionData.choiceResponses.option2)
+    .removeClass('d-none');
+
     $('#option3-response-box .choice-response')
-    .text(questionData.choiceResponses.option3);
+    .text(questionData.choiceResponses.option3)
+    .removeClass('d-none');
+
     $('#option4-response-box .choice-response')
-    .text(questionData.choiceResponses.option4);
+    .text(questionData.choiceResponses.option4)
+    .removeClass('d-none');
+
     $('#option5-response-box .choice-response')
-    .text(questionData.choiceResponses.option5);
+    .text(questionData.choiceResponses.option5)
+    .removeClass('d-none');
 
     let correctCircle = '#circle-' + questionData.answer;
     $(correctCircle)
@@ -139,6 +148,10 @@ function resetPage() {
 
     $('#confident-btn, #unsure-btn').removeClass('d-none');
     $('#next-btn').addClass('d-none');
+
+    $('input').prop('checked', false);
+
+    $('.radio-grey').addClass('radio-orange').removeClass('radio-grey');
 
     questionData = getQuestion(allQuestions);
     displayQuestion(questionData);
