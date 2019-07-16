@@ -31,6 +31,9 @@ label {
     font-size: 0.8rem;
 }
 
+label {
+    margin-bottom: 0;
+}
 
 .radio-response,
 .choice-response {
@@ -40,6 +43,7 @@ label {
 .radio-response {
     color: #c20606;
     font-style: italic;
+    margin-bottom: 0.5rem;
 }
 
 .choice-response {
@@ -61,4 +65,12 @@ label {
     margin-top: 0.27rem;
     margin-left: -2.8rem;
     position: absolute;
+}
+
+.fa-times-circle {
+    color: #c20606;
+}
+
+.fa-check-circle {
+    color: #015f06;
 }
