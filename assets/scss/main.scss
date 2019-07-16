@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+/* Containers */
+
+/* CREDIT: code to fix footer to bottom of page even when there is not
+enough content to push it down taken from https://css-tricks.com/couple-takes-sticky-footer/ */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: grey;
+    font-family: 'Roboto', sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.container-fluid,
+.row {
+    padding: 0;
+}
+
+.content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+#bottom-bar {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    height: 4rem;
+    border-top: 2px solid lightgray;
+    width: 100%;
+    padding: 1rem;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+#side-info-bar {
+    background-color: rgb(236, 236, 236);
+    padding: 1.5rem;
+    max-width: 250px;
+    height: 100vh;
+    padding-top: 65px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+#side-info-bar p,
+#side-info-bar a {
+    font-size: 0.8rem;
+}
+
+#side-info-bar i.fa-copy {
+    font-size: 1.5rem;
+}
+
+#top-bar {
+    height: 56px;
+    border-bottom: 2px solid lightgray;
+    background-color: white;
+    z-index: 10;
+}
+
+/* fonts */
+
+.key-concept-heading {
+    font-size: 1rem
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Icons, buttons, progress bar */
+
+.progress {
+    height: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.circle-mark {
+    /* positions circle mark in line with radio checkbox */
+    margin-top: 0.27rem;
+    margin-left: -2.8rem;
+    position: absolute;
+}
+
+.fa-times-circle {
+    color: #c20606;
+}
+
+.fa-check-circle {
+    color: #015f06;
+}
+
+.fa-chevron-right {
+    margin-left: 1rem;
+}
+
+button {
+    background-color: rgb(0, 39, 110);
+    color: white;
+    border: none;
+    width: 85px;
+    height: 30px;
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+}
+
+/* radios, questions, response */
+
+#question-response {
+    font-weight: 400;
+}
+
+#progress-bar-text,
+label {
+    font-size: 0.8rem;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.radio-response,
+.choice-response {
+    font-size: 0.75rem;
+}
+
+.radio-response {
+    color: #c20606;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.choice-response {
+    padding-left: 1rem;
+    border-left: 3px solid lightgray;
+    margin-bottom: 0.2rem;
+}
+
+.form-check {
+    padding-left: 3rem;
+}
+
+/* custom radio code from https://codepen.io/triss90/pen/XNEdRe/*/
+$color1: #f4f4f4;
+$color2: #3197EE;
+
+.radio {
+    margin: 0.5rem;
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+
+        +.radio-label {
+            &:before {
+                content: '';
+                background: $color1;
+                border-radius: 100%;
+                border: 1px solid darken($color1, 25%);
+                display: inline-block;
+                width: 1.4em;
+                height: 1.4em;
+                position: relative;
+                top: -0.2em;
+                margin-right: 1em;
+                vertical-align: top;
+                cursor: pointer;
+                text-align: center;
+                -webkit-transition: all 250ms ease;
+                transition: all 250ms ease;
+            }
+        }
+
+        &:checked {
+            +.radio-label {
+                &:before {
+                    background-color: $color2;
+                    -webkit-box-shadow: inset 0 0 0 4px $color1;
+                    box-shadow: inset 0 0 0 4px $color1;
+                }
+            }
+        }
+
+        &:focus {
+            +.radio-label {
+                &:before {
+                    outline: none;
+                    border-color: $color2;
+                }
+            }
+        }
+
+        &:disabled {
+            +.radio-label {
+                &:before {
+                    -webkit-box-shadow: inset 0 0 0 4px $color1;
+                    box-shadow: inset 0 0 0 4px $color1;
+                    border-color: darken($color1, 25%);
+                    background: darken($color1, 25%);
+                }
+            }
+        }
+
+        +.radio-label {
+            &:empty {
+                &:before {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/* Side info bar */
+
+.concept-box {
+    color: rgb(34, 34, 34);
+    background-color: #cccaca;
+    border-radius: 15px;
+}
