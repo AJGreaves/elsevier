@@ -26,3 +26,10 @@ _A one page web app for use at conferences, to demo medical study learning envir
 ![](https://i.ibb.co/LYFfVMw/image002.jpg)
 
 ![](https://i.ibb.co/Gv6vxxv/image003.jpg)
+
+### Questions for client:
+- "View lab values" link. Do I link this to something? If yes please provide link(s), or should I leave this section and the icon out? 
+- Is the "Copy Question" button functionality required? 
+    - If yes, do you want a copy of only the question or also the answer?
+    - If no, do you want me to leave the icon and text in?
+- Waiting for brand colours, images, fonts etc that need replicating.
