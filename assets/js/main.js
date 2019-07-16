@@ -3,5 +3,16 @@ fetch('assets/data/test.json')
         return data.json();
     })
     .then(function (data) {
-        console.log(data);
-    })
+        displayQuestions(data);
+    });
+
+let page = 1;
+
+function displayQuestions(data) {
+    let question = data.find(getPage);
+    console.log(question);
+}
+
+function getPage() {
+    return page;
+}
