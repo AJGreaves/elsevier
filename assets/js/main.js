@@ -11,7 +11,7 @@ let progress = 0;
 
 let formAnswer = document.querySelector('#formAnswer');
 
-fetch('assets/data/test.json')
+fetch('assets/data/questions.json')
     .then(function (data) {
         return data.json();
     })
@@ -125,6 +125,7 @@ function respondAnswer(questionData, givenAnswer) {
     timeCompleted = Math.round(timeCompleted / 1000);
 
     $('#timerResult').text(timeCompleted + ' sec.');
+    $('#key-concept').text(questionData.keyConcept);
 
     // change visible buttons at bottom of page
     $('#confident-btn, #unsure-btn').addClass('d-none');
