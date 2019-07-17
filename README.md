@@ -41,3 +41,6 @@ _A one page web app for use at conferences, to demo medical study learning envir
 
 ### Code
  - custom radio code from https://codepen.io/triss90/pen/XNEdRe/*/
+
+### Images and animations
+- Spinner: https://icons8.com/preloaders/en/circular

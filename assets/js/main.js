@@ -239,16 +239,35 @@ emailSignupForm.addEventListener('submit', (event) => {
             "email": emailSignupForm.email.value
         }
     };
-
+    showLoading();
     $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
         type: 'POST',
         data: JSON.stringify(data),
-        contentType: 'application/json'
+        contentType: 'application/json',
     }).done(function () {
+        hideLoading();
         alert('Subscription confirmed');
+        $('input').prop('checked', false);
         location.reload(); 
     }).fail(function (error) {
+        hideLoading();
         console.log('Oops... ' + JSON.stringify(error));
         alert('Oops something went wrong, please try again.');
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    hideLoading();
+    return;
+});
+
+// Show and hide spinner animation
+function showLoading() {
+    $("#spinner-background").css("visibility", "visible");
+    return;
+}
+
+function hideLoading() {
+    $("#spinner-background").css("visibility", "hidden");
+    return;
+}
