@@ -5,6 +5,8 @@ let confident = 0;
 let unsure = 0;
 let allQuestions = [];
 let questionData = [];
+let startTime;
+let finishTime;
 
 let formAnswer = document.querySelector('#formAnswer');
 
@@ -22,6 +24,7 @@ fetch('assets/data/test.json')
 $('#start-btn').click(function () {
     $('#start-page').addClass('d-none');
     $('#formAnswer, #restart-quiz-btn').removeClass('d-none');
+    startTime = Date.now();
 })
 
 $('#restart-quiz-btn').click(function () {
@@ -66,6 +69,7 @@ formAnswer.addEventListener('submit', (event) => {
     // prevents default behaviour of submit button to refresh page
     event.preventDefault();
 
+    finishTime = Date.now();
     const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
     respondAnswer(questionData, givenAnswer);
     return;
@@ -112,6 +116,11 @@ function respondAnswer(questionData, givenAnswer) {
 
     // display data in side info bar
     $('#percent-correct').text(questionData.percentCorrect);
+
+    timeCompleted = finishTime - startTime;
+    timeCompleted = Math.round(timeCompleted / 1000);
+
+    $('#timerResult').text(timeCompleted + ' sec.');
 
     // change visible buttons at bottom of page
     $('#confident-btn, #unsure-btn').addClass('d-none');
