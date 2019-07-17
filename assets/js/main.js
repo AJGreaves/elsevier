@@ -7,6 +7,7 @@ let allQuestions = [];
 let questionData = [];
 let startTime;
 let finishTime;
+let progress = 0;
 
 let formAnswer = document.querySelector('#formAnswer');
 
@@ -28,6 +29,7 @@ $('#start-btn').click(function () {
 })
 
 $('#restart-quiz-btn').click(function () {
+    $('input').prop('checked', false);
     location.reload(); 
 })
 
@@ -70,8 +72,10 @@ formAnswer.addEventListener('submit', (event) => {
     event.preventDefault();
 
     finishTime = Date.now();
+    progress++;
     const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
     respondAnswer(questionData, givenAnswer);
+    progressBar(progress);
     return;
 });
 
@@ -166,16 +170,18 @@ function incorrectAnswer(questionData, givenAnswer) {
 
 $('#next-btn').click(function () {
     activePage++;
+    progress++;
     if (activePage <= 3) {
-        resetPage();
+        loadNextQuestion();
     } else {
+        progress = 0;
         $('#formAnswer').addClass('d-none');
         $('#email-signup-page').removeClass('d-none');
         return;
     }
 })
 
-function resetPage() {
+function loadNextQuestion() {
     $('.radio').css('pointer-events', 'auto');
     $('.circle-wrapper, .radio-response, .choice-response, #question-response')
         .addClass('d-none');
@@ -192,6 +198,26 @@ function resetPage() {
 
     questionData = getQuestion(allQuestions);
     displayQuestion(questionData);
+
+    startTime = Date.now();
+
+    return;
+}
+
+function progressBar(progress) {
+    switch(progress) {
+        case 1:
+            $('.progress-bar').css('width', "33.33%").attr('aria-valuenow', '33.33');
+            break;
+        case 3: 
+            $('.progress-bar').css('width', "66.66%").attr('aria-valuenow', '66.66');
+            break;
+        case 5: 
+            $('.progress-bar').css('width', "100%").attr('aria-valuenow', '100');
+            break;
+        default:
+            break;
+    }
     return;
 }
 
