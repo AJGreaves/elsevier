@@ -3,6 +3,7 @@
 let activePage = 1;
 let confident = 0;
 let unsure = 0;
+let numCorrect = 0;
 let allQuestions = [];
 let questionData = [];
 let startTime;
@@ -19,6 +20,7 @@ fetch('assets/data/questions.json')
         allQuestions = data;
         questionData = getQuestion(allQuestions);
         displayQuestion(questionData);
+        $('input').prop('checked', false);
     })
     .catch(err => console.log(err));
 
@@ -29,8 +31,13 @@ $('#start-btn').click(function () {
 })
 
 $('#restart-quiz-btn').click(function () {
+    activePage = 1;
+    confident = 0;
+    unsure = 0;
+    numCorrect = 0;
+    progress = 0;
     $('input').prop('checked', false);
-    location.reload(); 
+    location.reload();
 })
 
 function getQuestion(allQuestions) {
@@ -130,12 +137,19 @@ function respondAnswer(questionData, givenAnswer) {
     // change visible buttons at bottom of page
     $('#confident-btn, #unsure-btn').addClass('d-none');
     $('#next-btn').removeClass('d-none');
-    $('.radio').css('pointer-events', 'none');
+    $('.radio-label').css('pointer-events', 'none');
 
     // show side info bar
     $('#question-column').removeClass('col-12').addClass('col-9');
     $('#side-info-bar').removeClass('d-none');
 
+    return;
+}
+
+function finalScore() {
+    $('#num-confident').text(confident);
+    $('#num-unsure').text(unsure);
+    $('#num-correct').text(numCorrect + " out of 3.");
     return;
 }
 
@@ -145,6 +159,7 @@ function correctAnswer(questionData) {
         .css('color', '#008000')
         .removeClass('d-none');
 
+    numCorrect++;
     let correctMsg = '#' + questionData.answer + '-response-box .radio-response';
     $(correctMsg).text('Correct').css('color', '#015f06');
     return;
@@ -176,6 +191,7 @@ $('#next-btn').click(function () {
         loadNextQuestion();
     } else {
         progress = 0;
+        finalScore();
         $('#formAnswer').addClass('d-none');
         $('#email-signup-page').removeClass('d-none');
         return;
@@ -183,7 +199,7 @@ $('#next-btn').click(function () {
 })
 
 function loadNextQuestion() {
-    $('.radio').css('pointer-events', 'auto');
+    $('.radio-label').css('pointer-events', 'auto');
     $('.circle-wrapper, .radio-response, .choice-response, #question-response')
         .addClass('d-none');
 
@@ -206,14 +222,14 @@ function loadNextQuestion() {
 }
 
 function progressBar(progress) {
-    switch(progress) {
+    switch (progress) {
         case 1:
             $('.progress-bar').css('width', "33.33%").attr('aria-valuenow', '33.33');
             break;
-        case 3: 
+        case 3:
             $('.progress-bar').css('width', "66.66%").attr('aria-valuenow', '66.66');
             break;
-        case 5: 
+        case 5:
             $('.progress-bar').css('width', "100%").attr('aria-valuenow', '100');
             break;
         default:
@@ -248,7 +264,7 @@ emailSignupForm.addEventListener('submit', (event) => {
         hideLoading();
         alert('Subscription confirmed');
         $('input').prop('checked', false);
-        location.reload(); 
+        location.reload();
     }).fail(function (error) {
         hideLoading();
         console.log('Oops... ' + JSON.stringify(error));

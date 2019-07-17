@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
 /* Variables */
+/* Headings */
+h2.complete {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+}
+
 /* Containers */
 /* CREDIT: code to fix footer to bottom of page even when there is not
 enough content to push it down taken from https://css-tricks.com/couple-takes-sticky-footer/ */
@@ -30,7 +47,7 @@ body {
   flex: 1 0 auto;
 }
 
-#bottom-bar {
+.bottom-bar {
   position: absolute;
   background-color: white;
   bottom: 0;
@@ -44,7 +61,8 @@ body {
   z-index: 10;
 }
 
-#side-info-bar {
+#side-info-bar,
+#final-score-bar {
   background-color: #ececec;
   padding: 1.5rem;
   max-width: 250px;
@@ -56,7 +74,8 @@ body {
 }
 
 #side-info-bar p,
-#side-info-bar a {
+#side-info-bar a,
+#final-score-bar p {
   font-size: 0.8rem;
 }
 
@@ -72,7 +91,7 @@ body {
   z-index: 10;
 }
 
-#email-signup-page {
+#email-signup-form {
   margin-top: 20vh;
 }
 

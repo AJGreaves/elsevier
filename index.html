@@ -146,22 +146,23 @@
 
                     <!-- side column, d-none when asking questions, col-3 when giving answers -->
                     <div id="side-info-bar" class="col-3 d-none">
+
                         <p class="key-concept-heading mb-1">Key Concepts</p>
                         <p id="key-concept" class="concept-box text-center py-1">branch of abdominal aorta</p>
+
                         <h2 id="percent-correct"></h2>
                         <p>Percentage of students who got this right.</p>
                         <h2 id="timerResult">??</h2>
                         <p>Time you spent answering this question.</p>
                         <hr>
-                        <div>
-                            <i class="far fa-copy"></i>
-                            <a href="#" aria-label="copy this question">Copy Question</a>
-                        </div>
+                        <i class="far fa-copy"></i>
+                        <a href="#" aria-label="copy this question">Copy Question</a>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div id="bottom-bar" class="container-fluid">
+        <div class="bottom-bar" class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-8">
                     <button id="confident-btn" type="submit">Confident</button>
@@ -174,26 +175,56 @@
     </form>
 
     <div id="email-signup-page" class="container-fluid d-none">
-        <div class="row no-gutters justify-content-center">
-            <div class="col-10 col-md-6 col-lg-5 col-xl-4">
-                <h3>Sign up for our mailing list!</h3>
-                <form id="emailSignupForm" action="POST">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input id="firstName" type="text" name="firstName" class="form-control" required>
+        <div class="row no-gutters">
+            <!-- Top bar -->
+            <div class="top-bar" class="col-12">
+            </div>
+            <div class="col-9">
+                <div class="row justify-content-center">
+                    <div id="email-signup-form" class="col-12 col-md-9 col-lg-7 col-xl-5">
+                        <h3>Sign up for our mailing list!</h3>
+                        <form id="emailSignupForm" action="POST">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input id="firstName" type="text" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input id="lastName" type="text" name="lastName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" name="email" class="form-control" required>
+                            </div>
+                            <button type="submit">Subscribe</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input id="lastName" type="text" name="lastName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" type="email" name="email" class="form-control" required>
-                    </div>
-                    <button type="submit">Subscribe</button>
-                </form>
+                </div>
+            </div>
+
+            <!-- final score bar visible with email signup on completing the test -->
+            <div id="final-score-bar" class="col-3">
+
+                <h2 class="complete">Test complete!</h2>
+                <hr>
+                <h3 id="num-correct"></h3>
+                <p>Your score</p>
+                <h3 id="num-confident"></h3>
+                <p>Number of answers you were confident of.</p>
+                <h3 id="num-unsure"></h3>
+                <p>Number of answers you were unsure of.</p>
+                <hr>
+
+                <i class="far fa-copy"></i>
+                <a href="#" aria-label="copy this question">Copy Question</a>
+
             </div>
         </div>
+
+        <!-- Bottom bar -->
+        <div class="bottom-bar">
+        </div>
+
     </div>
 
     <button id="restart-quiz-btn" class="d-none" type="button">Restart quiz</button>
