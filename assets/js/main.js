@@ -98,7 +98,6 @@ function displayQuestion(questionData) {
     return;
 }
 
-
 /**
  * Counts the number of clicks on the confident and unsure buttons
  * to be displayed on the screen at the end of the quiz.
@@ -133,7 +132,7 @@ formAnswer.addEventListener('submit', (event) => {
 
 /**
  * Compares correct answer with users response and calls the appropriate function 
- * to respond with correct/incorrect on screen.
+ * to respond with correct/incorrect on screen. Then calls functions to display answer page.
  * @param {object} questionData | json object this page question.
  * @param {*} givenAnswer | users selected answer from input radios.
  */
@@ -155,6 +154,11 @@ function respondAnswer(questionData, givenAnswer) {
     return;
 }
 
+/**
+ * Function called with users answer is correct. Displays text on screen to tell user
+ * they are correct. Increases count of numCorrect and adds the "correct" text under the option selected.
+ * @param {object} questionData | json object this page question.
+ */
 function correctAnswer(questionData) {
     $('#question-response')
         .text('Your answer is correct.')
@@ -167,6 +171,13 @@ function correctAnswer(questionData) {
     return;
 }
 
+/**
+ * Function called with users answer is incorrect. Displays text on the screen to tell user
+ * they are incorrect. Displays cross icon next to answer they selected. Displays "incorrect"
+ * text under option user selected, and "correct" text under the correct answer.
+ * @param {object} questionData | json object this page question
+ * @param {string} givenAnswer | value of answer user selected
+ */
 function incorrectAnswer(questionData, givenAnswer) {
     $('#question-response')
         .text('Your answer is incorrect.')
@@ -269,6 +280,9 @@ function hideSubmitShowNextBtns() {
     return;
 }
 
+/**
+ * Displays score data on side info box once user has completed the quiz.
+ */
 function finalScore() {
     $('#num-confident').text(confident);
     $('#num-unsure').text(unsure);
@@ -277,6 +291,18 @@ function finalScore() {
 }
 
 $('#next-btn').click(function () {
+    nextBtn();
+    return;
+})
+
+/**
+ * Increases active page and progress numbers, then checks which page the
+ * user is on. If quiz is not finished yet then loads the next question.
+ * If quiz is complete, reset the progress number to 0, calls the function 
+ * to display the final score. Then hides the question page and shows the 
+ * email signup page.
+ */
+function nextBtn() {
     activePage++;
     progress++;
     if (activePage <= 3) {
@@ -286,9 +312,9 @@ $('#next-btn').click(function () {
         finalScore();
         $('#formAnswer').addClass('d-none');
         $('#email-signup-page').removeClass('d-none');
-        return;
     }
-})
+    return;
+}
 
 function loadNextQuestion() {
     $('.radio-label').css('pointer-events', 'auto');
