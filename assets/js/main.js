@@ -12,6 +12,10 @@ let progress = 0;
 
 let formAnswer = document.querySelector('#formAnswer');
 
+
+/**
+ * Fetches question data from questions.json 
+ */
 fetch('assets/data/questions.json')
     .then(function (data) {
         return data.json();
@@ -25,12 +29,31 @@ fetch('assets/data/questions.json')
     .catch(err => console.log(err));
 
 $('#start-btn').click(function () {
+    startQuiz();
+})
+
+
+/**
+ * Hides start page and displays question page. 
+ * Gets current time to compare with finish time for
+ * time taken to complete first question.
+ */
+function startQuiz(){
     $('#start-page').addClass('d-none');
     $('#formAnswer, #restart-quiz-btn').removeClass('d-none');
     startTime = Date.now();
-})
+    return;
+}
 
 $('#restart-quiz-btn').click(function () {
+    restartQuiz();
+})
+
+/**
+ * Resets all values, removes any checks on radio input fields,
+ * the reloads the page so that the start page is visible again.
+ */
+function restartQuiz() {
     activePage = 1;
     confident = 0;
     unsure = 0;
@@ -38,13 +61,24 @@ $('#restart-quiz-btn').click(function () {
     progress = 0;
     $('input').prop('checked', false);
     location.reload();
-})
+    return;
+}
 
+/**
+ * Takes the full data from questions.json, finds and returns the object in it with the 
+ * id number that matches the page that the user is on.
+ * @param {array} allQuestions | full data from questions.json
+ */
 function getQuestion(allQuestions) {
     let question = allQuestions.find(x => x.id === activePage);
     return question;
 }
 
+/**
+ * Takes the json object for the page the user is on. Adds the progressbar text, and 
+ * applies the data to html to display the question and answer options on the screen.
+ * @param {object} questionData | json object this page question.
+ */
 function displayQuestion(questionData) {
 
     let progressText = "Question " + activePage + " of 3"
@@ -64,6 +98,11 @@ function displayQuestion(questionData) {
     return;
 }
 
+
+/**
+ * Counts the number of clicks on the confident and unsure buttons
+ * to be displayed on the screen at the end of the quiz.
+ */
 $('#confident-btn').click(function () {
     confident++;
     return;
@@ -74,6 +113,12 @@ $('#unsure-btn').click(function () {
     return;
 })
 
+/**
+ * Listens for when the user clicks one of the two submit buttons for the form. 
+ * Stops the submit button from reloading the page. Collects the time right now 
+ * and applies it to finishTime. Increases the progress value. Gets the value of 
+ * the checked radio and then calls the functions to display the response. 
+ */
 formAnswer.addEventListener('submit', (event) => {
     // prevents default behaviour of submit button to refresh page
     event.preventDefault();
@@ -86,70 +131,27 @@ formAnswer.addEventListener('submit', (event) => {
     return;
 });
 
+/**
+ * Compares correct answer with users response and calls the appropriate function 
+ * to respond with correct/incorrect on screen.
+ * @param {object} questionData | json object this page question.
+ * @param {*} givenAnswer | users selected answer from input radios.
+ */
 function respondAnswer(questionData, givenAnswer) {
 
     if (givenAnswer == questionData.answer) {
-        correctAnswer(questionData, givenAnswer);
+        correctAnswer(questionData);
     } else {
         incorrectAnswer(questionData, givenAnswer);
     }
 
-    // display info for each choice
-    $('#option1-response-box .choice-response')
-        .text(questionData.choiceResponses.option1)
-        .removeClass('d-none');
+    displayOptionInfo(questionData);
+    displayCircleIcons(questionData);
+    deactivateRadios();
+    displayDataInfo();
+    hideSubmitShowNextBtns();
+    showSideInfo();
 
-    $('#option2-response-box .choice-response')
-        .text(questionData.choiceResponses.option2)
-        .removeClass('d-none');
-
-    $('#option3-response-box .choice-response')
-        .text(questionData.choiceResponses.option3)
-        .removeClass('d-none');
-
-    $('#option4-response-box .choice-response')
-        .text(questionData.choiceResponses.option4)
-        .removeClass('d-none');
-
-    $('#option5-response-box .choice-response')
-        .text(questionData.choiceResponses.option5)
-        .removeClass('d-none');
-
-    // display icons to indicate correct / incorrect answer
-    let correctCircle = '#circle-' + questionData.answer;
-    $(correctCircle)
-        .addClass('fa-check-circle')
-        .removeClass('fa-times-circle')
-        .parent().removeClass('d-none');
-
-    // make selected radio color grey
-    $('.radio-orange').addClass('radio-grey').removeClass('radio-orange');
-
-    // display data in side info bar
-    $('#percent-correct').text(questionData.percentCorrect);
-
-    timeCompleted = finishTime - startTime;
-    timeCompleted = Math.round(timeCompleted / 1000);
-
-    $('#timerResult').text(timeCompleted + ' sec.');
-    $('#key-concept').text(questionData.keyConcept);
-
-    // change visible buttons at bottom of page
-    $('#confident-btn, #unsure-btn').addClass('d-none');
-    $('#next-btn').removeClass('d-none');
-    $('.radio-label').css('pointer-events', 'none');
-
-    // show side info bar
-    $('#question-column').removeClass('col-12').addClass('col-9');
-    $('#side-info-bar').removeClass('d-none');
-
-    return;
-}
-
-function finalScore() {
-    $('#num-confident').text(confident);
-    $('#num-unsure').text(unsure);
-    $('#num-correct').text(numCorrect + " out of 3.");
     return;
 }
 
@@ -181,6 +183,96 @@ function incorrectAnswer(questionData, givenAnswer) {
     let correct = '#' + questionData.answer + '-response-box .radio-response';
     $(incorrect).text('Incorrect').css('color', '#c20606');
     $(correct).text('Correct').css('color', '#015f06');
+    return;
+}
+
+/**
+ * Displays more info about each of the question options on the page, 
+ * after the user has selected their answer.
+ * @param {object} questionData | json object data for this question.
+ */
+function displayOptionInfo(questionData) {
+    $('#option1-response-box .choice-response')
+        .text(questionData.choiceResponses.option1)
+        .removeClass('d-none');
+    $('#option2-response-box .choice-response')
+        .text(questionData.choiceResponses.option2)
+        .removeClass('d-none');
+    $('#option3-response-box .choice-response')
+        .text(questionData.choiceResponses.option3)
+        .removeClass('d-none');
+    $('#option4-response-box .choice-response')
+        .text(questionData.choiceResponses.option4)
+        .removeClass('d-none');
+    $('#option5-response-box .choice-response')
+        .text(questionData.choiceResponses.option5)
+        .removeClass('d-none');
+        
+    return;
+}
+
+/**
+ * Displays icons to indicate correct / incorrect answer
+ * @param {*} questionData | json object data for this question.
+ */
+function displayCircleIcons(questionData) {
+    let correctCircle = '#circle-' + questionData.answer;
+    $(correctCircle)
+        .addClass('fa-check-circle')
+        .removeClass('fa-times-circle')
+        .parent().removeClass('d-none');
+    return;
+}
+
+/**
+ * Deactivates radios so they can't be clicked, and changes selected radio 
+ * to grey after user clicks button to submit answer.
+ */
+function deactivateRadios() {
+    $('.radio-orange').addClass('radio-grey').removeClass('radio-orange');
+    $('.radio-label').css('pointer-events', 'none');
+}
+
+/**
+ * Returns number of seconds user took to answer a question
+ */
+function getTime() {
+    return Math.round((finishTime - startTime) / 1000);
+}
+
+/**
+ * Adds data to side info bar in html
+ */
+function displayDataInfo() {
+    $('#percent-correct').text(questionData.percentCorrect);
+    $('#timerResult').text(getTime() + ' sec.');
+    $('#key-concept').text(questionData.keyConcept);
+    return;
+}
+
+/**
+ * When user confirms their answer this function changes the column width 
+ * of the questions column to make room to display the side info bar.
+ */
+function showSideInfo() {
+    $('#question-column').removeClass('col-12').addClass('col-9');
+    $('#side-info-bar').removeClass('d-none');
+    return;
+}
+
+/**
+ * Changes visible buttons when user submits an answer
+ */
+function hideSubmitShowNextBtns() {
+    $('#confident-btn, #unsure-btn').addClass('d-none');
+    $('#next-btn').removeClass('d-none');
+    return;
+}
+
+function finalScore() {
+    $('#num-confident').text(confident);
+    $('#num-unsure').text(unsure);
+    $('#num-correct').text(numCorrect + " out of 3.");
     return;
 }
 
