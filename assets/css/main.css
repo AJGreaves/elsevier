@@ -8,38 +8,38 @@
 }
 
 h1#termsHeading {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   text-decoration: underline;
 }
 
 h2.complete {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 h5 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 #side-info-bar p,
 #side-info-bar a,
 #final-score-bar p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 #side-info-bar i.fa-copy {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .key-concept-heading {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 a:hover {
@@ -135,7 +135,7 @@ body {
   margin-left: -1.5rem;
   margin-top: 0.05rem;
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .fa-times-circle {
@@ -183,7 +183,7 @@ button {
 
 #progress-bar-text,
 label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 label {
@@ -192,7 +192,7 @@ label {
 
 .radio-response,
 .choice-response {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
 }
 
 .radio-response {
@@ -386,7 +386,7 @@ javascript when I needed it. */
   position: absolute;
   top: .15em;
   left: .22em;
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 0.8;
   color: #FF8200;
   -webkit-transition: all .2s;
