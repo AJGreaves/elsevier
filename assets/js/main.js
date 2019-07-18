@@ -316,6 +316,10 @@ function nextBtn() {
     return;
 }
 
+/**
+ * Removes all data from previous questions,  calls functions to get next question
+ * and display it on the screen, then gets new start time.
+ */
 function loadNextQuestion() {
     $('.radio-label').css('pointer-events', 'auto');
     $('.circle-wrapper, .radio-response, .choice-response, #question-response')
@@ -339,6 +343,11 @@ function loadNextQuestion() {
     return;
 }
 
+/**
+ * Updates the progress bar above questions to show user where they are
+ * in the quiz.
+ * @param {int} progress | int that marks the users progress through the quiz
+ */
 function progressBar(progress) {
     switch (progress) {
         case 1:
@@ -357,8 +366,9 @@ function progressBar(progress) {
 }
 
 /**
- * Send email with form data. UserID deliberately obscured using https://obfuscator.io/
+ * Sends email using EmailJS
  */
+
 const emailSignupForm = document.querySelector('#emailSignupForm');
 
 emailSignupForm.addEventListener('submit', (event) => {
@@ -395,12 +405,17 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
 });
 
-// Show and hide spinner animation
+/**
+ * Shows loading spinner
+ */
 function showLoading() {
     $("#spinner-background").css("visibility", "visible");
     return;
 }
 
+/**
+ * Hides loading spinner
+ */
 function hideLoading() {
     $("#spinner-background").css("visibility", "hidden");
     return;
