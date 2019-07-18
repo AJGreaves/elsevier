@@ -128,7 +128,7 @@ Further reading and troubleshooting on cloning a repository from GitHub [here](h
 ## Credits
 
 ### Code
-- Custom radio code from [triss90 on codepen](https://codepen.io/triss90/pen/XNEdRe/*/)
+- Custom radio code from [triss90 on codepen](https://codepen.io/triss90/pen/XNEdRe/)
 
 ### Images and animations
 - Spinner aquired from [icons8](https://icons8.com/preloaders/en/circular)
