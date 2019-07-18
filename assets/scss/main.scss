@@ -6,6 +6,10 @@ $red: #c20606;
 
 /* Headings and fonts */
 
+h1#start-pg-header {
+    margin-top: 25vh;
+}
+
 h2.complete { font-size: 1.5rem; }
 
 h3 { font-size: 1.2rem; }
@@ -103,7 +107,13 @@ body {
     margin-top: 20vh;
 }
 
+
 /* Icons, buttons, progress bar */
+
+.logo {
+    height: 40px;
+    margin: 8px;
+}
 
 .progress {
     height: 0.6rem;
@@ -142,7 +152,7 @@ button {
 
 #start-btn {
     margin: 0;
-    margin-top: 40vh;
+    margin-top: 25px;
 }
 
 #restart-quiz-btn {
