@@ -149,7 +149,7 @@ body {
 }
 
 button {
-  background-color: #00276e;
+  background-color: #007398;
   color: white;
   border: none;
   width: 85px;
@@ -161,6 +161,7 @@ button {
 #start-btn {
   margin: 0;
   margin-top: 25px;
+  width: 140px;
 }
 
 #restart-quiz-btn {
