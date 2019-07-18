@@ -373,6 +373,12 @@ const emailSignupForm = document.querySelector('#emailSignupForm');
 
 emailSignupForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    let canContact = 'No thank you.';
+    if ($('#plsContactMe').is(":checked")) {
+        canContact = 'Yes please.';
+    };
+
     const data = {
         service_id: "gmail",
         template_id: "elsevier",
@@ -380,7 +386,8 @@ emailSignupForm.addEventListener('submit', (event) => {
         template_params: {
             "firstName": emailSignupForm.firstName.value,
             "lastName": emailSignupForm.lastName.value,
-            "email": emailSignupForm.email.value
+            "email": emailSignupForm.email.value,
+            "plsContactMe": canContact
         }
     };
     showLoading();
@@ -390,8 +397,9 @@ emailSignupForm.addEventListener('submit', (event) => {
         contentType: 'application/json',
     }).done(function () {
         hideLoading();
-        alert('Subscription confirmed');
+        alert('Submission successful');
         $('input').prop('checked', false);
+        $('input').val('');
         location.reload();
     }).fail(function (error) {
         hideLoading();
