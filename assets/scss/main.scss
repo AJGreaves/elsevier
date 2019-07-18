@@ -478,7 +478,7 @@ javascript when I needed it. */
 /* accessibility */
 [type="checkbox"]:checked:focus+label:before,
 [type="checkbox"]:not(:checked):focus+label:before {
-    border: 2px solid darkgray;
+    border: 2px solid $color2;
 }
 
 /* hover style just for information */
