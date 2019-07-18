@@ -30,7 +30,7 @@ fetch('assets/data/questions.json')
 
 $('#start-btn').click(function () {
     startQuiz();
-})
+});
 
 
 /**
@@ -47,7 +47,7 @@ function startQuiz(){
 
 $('#restart-quiz-btn').click(function () {
     restartQuiz();
-})
+});
 
 /**
  * Resets all values, removes any checks on radio input fields,
@@ -81,7 +81,7 @@ function getQuestion(allQuestions) {
  */
 function displayQuestion(questionData) {
 
-    let progressText = "Question " + activePage + " of 3"
+    let progressText = "Question " + activePage + " of 3";
     $('#progress-bar-text').text(progressText);
 
     /* Question */
@@ -105,12 +105,12 @@ function displayQuestion(questionData) {
 $('#confident-btn').click(function () {
     confident++;
     return;
-})
+});
 
 $('#unsure-btn').click(function () {
     unsure++;
     return;
-})
+});
 
 /**
  * Listens for when the user clicks one of the two submit buttons for the form. 
@@ -293,7 +293,7 @@ function finalScore() {
 $('#next-btn').click(function () {
     nextBtn();
     return;
-})
+});
 
 /**
  * Increases active page and progress numbers, then checks which page the
