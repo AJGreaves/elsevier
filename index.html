@@ -208,7 +208,7 @@
             <div class="col-9">
                 <div class="row justify-content-center">
                     <div id="email-signup-form" class="col-12 col-md-9 col-lg-7 col-xl-5">
-                        <h3>Sign up for our mailing list!</h3>
+                        <h3>Nicely done! Enter our prize draw below and we will email you if you’re the winner!</h3>
                         <form id="emailSignupForm" action="POST">
                             <div class="form-group">
                                 <label for="firstName">First Name</label>
@@ -221,6 +221,19 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input id="email" type="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="termsConditions" name="termsConditions" required>
+                                <label class="form-check-label" for="termsConditions">
+                                    I accept the 
+                                    <a href="https://www.elsevier.com/legal/privacy-policy" aria-label="Privacy Policy" rel="noopener" targe="_blank">
+                                        Privacy Policy 
+                                    </a> 
+                                    and 
+                                    <a href="#" aria-label="Terms & Conditions" rel="noopener" targe="_blank">
+                                        Terms & Conditions
+                                    </a> 
+                                </label>
                             </div>
                             <button type="submit">Subscribe</button>
                         </form>
