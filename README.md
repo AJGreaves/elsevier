@@ -6,22 +6,28 @@ A one page web app for use at conferences, to demo medical study learning enviro
  
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
-
 Client requests: 
 - Duplicate the 3 questions from the companies learning environment.
+
 - After Q3 answer is shown, pressing 'next' goes to the email sign up form.
+
 - Collect following data from user: First name, Last name, email address
+
 - Send data to company using EmailJS.
+
 - Web app is used on an iPad and/or a lower/mid resolution laptop. Mobile responsiveness is not necessary.
 
-- _Waiting for brand colours, images, fonts etc that need replicating from client._
-
+- Brand colours, images, fonts etc that need replicating provided by the client.
+    - [Client Logo](assets/img/elsevier_logo.png)
+    - Main font - NexusSansPro
+    - Start page header font - Elsevier Display BoldCondensed
+    - Brand colours
+        - Orange: #FF8200
+        - Blue: #007398
+        - Grey: #808080
+    - Terms and conditions PDF provided to replicate on terms.html page
+    - Favicon
+    
 ### Images provided by client to replicate: 
 
 ![](https://i.ibb.co/njW7WKS/Clipboard01.jpg)
@@ -35,63 +41,89 @@ Client requests:
 ### Existing Features
 
 #### Start page
-- Features start button
+- **Client logo** in top left corner, links to the index.html page.
+- **Heading** in client's custom brand font.
+- **Start button** in brand color to begin the quiz.
 
+#### Questions page
 
-- Questions page
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- **Progress bar** shows the user where they are in their progress through the quiz. Updates every time they submit an answer.
+
+- **Question** and 5 **multiple choice answers** to choose from.
+
+- Custom **radio inputs**, colored the brand colour on hover and selection. 
+
+- **Confident button** and **not sure B]button** are displayed at the bottom of the page for the user to submit their answer. Which is clicked is recorded for their results.
+
+- When an answer is submitted the user is given feedback if their answer was correct or not. The correct answer is displayed for them. And notes on each of the options is displayed under their corresponding answer choice.
+
+- **Side info bar** displays the **key concept** for the question, the **percentage** of students who got this question right, and the number of **seconds** it took the user to answer. 
+
+- A **next button** is available to start the next question.
+
+- The **restart quiz button** reloads the entire quiz from any point within it. 
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
-### Features Left to Implement
+#### Email signup page
 
-#### Start page
+- **Sign-up form** collects first name, last name, email address and if the user wishes to be contacted about Elsevier products. All this data is packaged into an email and forwarded to the client each time someone submits a form.
 
-- Logo (waiting for client to provide)
-- Welcome message? (waiting for client to confirm)
+- Links to the privacy policy and terms and conditions are provided with the form. 
+
+- The side info bar displays how many questions out of three the user got correct, the number of answers they were confident of and the number they were unsure of.
+
+- On successfully submitting the email for an alert lets the user know the form was received, and on closing the alert the page is reloaded for the next user. 
+
+- Custom spinner runs while email is being sent.
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
+- This project uses HTML, CSS and JavaScript programming languages.
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
-
-
-## Testing
-
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+- [Visual Studio Code](https://code.visualstudio.com/) 
+    - Developer used **VSCode** for their IDE while building the website.
+- [Bootstrap](https://www.bootstrapcdn.com/)
+    - The project uses **Bootstrap** to simplify the structure of the website and make the website responsive easily.
+    - The project also uses Bootstrap to provide icons from [FontAwesome](https://www.bootstrapcdn.com/fontawesome/)
+- [Adobe Fonts](https://fonts.adobe.com/fonts)
+    - The project uses **Adobe fonts** to style the website fonts.
+- [Imgbb](https://imgbb.com)
+- [GitHub](https://github.com/)
+    - This project uses **GitHub** to store and share all project code remotely. 
+    - The new GitHub Projects planner was utilised to plan and keep track of this project. This project plan can be viewed [here](https://github.com/AJGreaves/picflip/projects/1).
+- [Photoshop](www.adobe.com/Photoshop)
+    - This project used tools in **Photohshop** to edit, crop and save images as well as ulitizing the colour picker to ensure color consistency over the entire project.
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+To deploy this project to GitHub Pages from its [GitHub repository](https://github.com/AJGreaves/elsevier), the following steps were taken: 
+1. Log into GitHub. 
+2. From the list of repositories on the screen, select **AJGreaves/elsevier**.
+3. From the menu items near the top of the page, select **Settings**.
+4. Scroll down to the **GitHub Pages** section.
+5. Under **Source** click the drop-down menu labelled **None** and select **Master Branch**
+6. On selecting Master Branch the page is automatically refreshed, the project is now deployed. 
+7. Scroll back down to the **GitHub Pages** section to retrieve the link to the deployed website.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+### How to run this project locally
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+To clone this project from GitHub:
+1. Follow this link to the [Elsevier GitHub repository](https://github.com/AJGreaves/elsevier).
+2. Under the repository name, click "Clone or download".
+3. In the Clone with HTTPs section, copy the clone URL for the repository. 
+4. In your local IDE open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type ```git clone```, and then paste the URL you copied in Step 3.
+```console
+git clone https://github.com/USERNAME/REPOSITORY
+```
+7. Press Enter. Your local clone will be created.
 
+Further reading and troubleshooting on cloning a repository from GitHub [here](https://help.github.com/en/articles/cloning-a-repository).
 
 ## Credits
 
@@ -102,11 +134,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - Spinner: https://icons8.com/preloaders/en/circular
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- All content provided by the client
 
 ### Media
-- The photos used in this site were obtained from ...
-
-### Acknowledgements
-
-- I received inspiration for this project from X
+- All media provided by the client
