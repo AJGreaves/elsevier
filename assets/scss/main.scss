@@ -4,27 +4,37 @@
 
 $red: #c20606;
 
-/* Headings */
+/* Headings and fonts */
 
-h2.complete {
+h2.complete { font-size: 1.5rem; }
+
+h3 { font-size: 1.2rem; }
+
+h4 { font-size: 1rem; }
+
+h5 { font-size: 0.8rem; }
+
+#side-info-bar p,
+#side-info-bar a,
+#final-score-bar p {
+    font-size: 0.8rem;
+}
+
+#side-info-bar i.fa-copy {
     font-size: 1.5rem;
 }
 
-h3 {
-    font-size: 1.2rem;
+.key-concept-heading {
+    font-size: 1rem
 }
 
-h4 {
-    font-size: 1rem;
-}
-
-h5 {
-    font-size: 0.8rem;
+a:hover {
+    text-decoration: none;
 }
 
 /* Containers */
 
-/* CREDIT: code to fix footer to bottom of page even when there is not
+/* CREDIT: code to fix bottom-bar to bottom of page even when there is not
 enough content to push it down taken from https://css-tricks.com/couple-takes-sticky-footer/ */
 html,
 body {
@@ -79,16 +89,6 @@ body {
     top: 0;
 }
 
-#side-info-bar p,
-#side-info-bar a,
-#final-score-bar p {
-    font-size: 0.8rem;
-}
-
-#side-info-bar i.fa-copy {
-    font-size: 1.5rem;
-}
-
 .top-bar {
     height: 56px;
     width: 100%;
@@ -97,18 +97,10 @@ body {
     z-index: 10;
 }
 
+/* Margins */
+
 #email-signup-form {
     margin-top: 20vh;
-}
-
-/* fonts */
-
-.key-concept-heading {
-    font-size: 1rem
-}
-
-a:hover {
-    text-decoration: none;
 }
 
 /* Icons, buttons, progress bar */
@@ -199,6 +191,44 @@ label {
     padding-left: 3rem;
 }
 
+
+/* Side info bar */
+
+.concept-box {
+    color: rgb(34, 34, 34);
+    background-color: #cccaca;
+    border-radius: 15px;
+}
+
+/* Spinner */
+
+#spinner-background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#spinner-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    height: 50px;
+    width: 50px;
+    z-index: 99999;
+}
+
+#spinner {
+    background-image: url("../img/spinner.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
 /* custom radio code from https://codepen.io/triss90/pen/XNEdRe/*/
 $color1: #f4f4f4;
 $color2: #ff7f43;
@@ -271,6 +301,9 @@ $color3: #3d3d3d;
     }
 }
 
+/* Could not find the right css to adjust the colour of the radio on it's own,
+so replicated the full code from codepen again and changed the class with 
+javascript when I needed it. */
 .radio-grey {
     margin: 0.5rem;
 
@@ -336,42 +369,4 @@ $color3: #3d3d3d;
             }
         }
     }
-}
-
-
-/* Side info bar */
-
-.concept-box {
-    color: rgb(34, 34, 34);
-    background-color: #cccaca;
-    border-radius: 15px;
-}
-
-/* Spinner */
-
-#spinner-background {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-#spinner-wrapper {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -25px;
-    margin-left: -25px;
-    height: 50px;
-    width: 50px;
-    z-index: 99999;
-}
-
-#spinner {
-    background-image: url("../img/spinner.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
 }
