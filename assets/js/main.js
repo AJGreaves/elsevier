@@ -371,6 +371,10 @@ function progressBar(progress) {
 
 const emailSignupForm = document.querySelector('#emailSignupForm');
 
+/**
+ * Email currently disconnected from elsevier email and redirected to my email. 
+ * To change this log into emailjs and update elsevier template with other email.
+ */
 emailSignupForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
