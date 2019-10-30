@@ -74,6 +74,10 @@ body {
   padding: 0;
 }
 
+.intro-info {
+  margin-top: 5rem;
+}
+
 .content {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
@@ -150,14 +154,25 @@ body {
   margin-left: 1rem;
 }
 
-button {
+button,
+#acquisition-link {
   background-color: #007398;
   color: white;
   border: none;
-  width: 85px;
+  min-width: 85px;
   height: 30px;
   font-size: 0.9rem;
   margin-right: 0.3rem;
+  border-radius: 0;
+}
+
+#acquisition-link.yes-btn {
+  background-color: #FF8200;
+  min-width: 120px;
+}
+
+.acquisition-invite-button {
+  min-width: 120px;
 }
 
 #start-btn {

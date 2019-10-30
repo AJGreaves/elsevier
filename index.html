@@ -23,7 +23,7 @@
 
 <body>
     <!-- Start page, visible on loading the page, hit start button to begin -->
-    <div id="start-page" class="content">
+    <div id="start-page" class="content d-none">
 
         <!-- Top bar for start page -->
         <div class="top-bar">
@@ -33,10 +33,19 @@
         </div>
         <div class="container-fluid">
             <div class="row no-gutters justify-content-center">
-                <div class="col-10 text-center">
-                    <img id="start-pg-header" class="mx-auto" src="assets/img/heading.jpg"
-                        alt="Turn insights into knowledge">
-                    <button type="button" id="start-btn">Start my Test<i class="fas fa-chevron-right"></i></button>
+                <div class="col-10 col-lg-5 intro-info">
+                    <h3>We have a new learning tool, ClinicalKey Student, that enables:</h3>
+                    <ul>
+                        <li>Teachers to assign tests to students</li>
+                        <li>Teachers to use evidence to understand where students are struggling and adjust teaching</li>
+                        <li>Students to receive immediate feedback and advice on areas they can improve</li>
+                        <l>Students to self-assess on their own</l>
+                    </ul>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-12 col-lg-5 text-center">
+                        <button type="button" id="start-btn" class="mx-auto">Test it out <i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -200,7 +209,7 @@
         </div>
     </form>
 
-    <!-- Email signup page, only visible after quiz is complete -->
+    <!-- Prize draw signup page, only visible after quiz is complete -->
     <div id="email-signup-page" class="container-fluid d-none">
         <div class="row no-gutters">
 
@@ -265,6 +274,25 @@
         <!-- Bottom bar -->
         <div class="bottom-bar"></div>
 
+    </div>
+
+    <!-- Invitation to sign up on acquisition form, only visible after user enters prize draw -->
+    <div id="acquisition-form-invite" class="container-fluid"> <!-- add d-none class -->
+        <div class="row no-gutters">
+            <!-- Top bar for acquisition invite page -->
+            <div class="col-12 top-bar">
+                <a href="index.html">
+                    <img src="assets/img/elsevier_logo.png" alt="ClinicalKey Student logo" class="logo">
+                </a>
+            </div>
+            <div class="col-12 mt-5 pt-5 text-center">
+                <h3>Are you interested in learning more about ClinicalKey Student and relevant products from Elsevier?</h3>
+                <button type="button" class="m-4 acquisition-invite-button">No thank you.</button>
+                <a id="acquisition-link" type="button" class="m-4 btn acquisition-invite-button yes-btn">Yes Please!</a>
+            </div>
+        </div>
+        <!-- Bottom bar -->
+        <div class="bottom-bar"></div>
     </div>
 
     <!-- Button to restart quiz from any page -->
