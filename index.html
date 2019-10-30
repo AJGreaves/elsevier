@@ -23,7 +23,7 @@
 
 <body>
     <!-- Start page, visible on loading the page, hit start button to begin -->
-    <div id="start-page" class="content d-none">
+    <div id="start-page" class="content">
 
         <!-- Top bar for start page -->
         <div class="top-bar">
@@ -277,7 +277,7 @@
     </div>
 
     <!-- Invitation to sign up on acquisition form, only visible after user enters prize draw -->
-    <div id="acquisition-form-invite" class="container-fluid"> <!-- add d-none class -->
+    <div id="acquisition-form-invite" class="container-fluid d-none">
         <div class="row no-gutters">
             <!-- Top bar for acquisition invite page -->
             <div class="col-12 top-bar">
@@ -287,8 +287,12 @@
             </div>
             <div class="col-12 mt-5 pt-5 text-center">
                 <h3>Are you interested in learning more about ClinicalKey Student and relevant products from Elsevier?</h3>
-                <button type="button" class="m-4 acquisition-invite-button">No thank you.</button>
-                <a id="acquisition-link" type="button" class="m-4 btn acquisition-invite-button yes-btn">Yes Please!</a>
+                <button type="button" class="restart-quiz-btn m-4 acquisition-invite-button">No thank you.</button>
+                <a href="https://campaigns.elsevier.com/ck-student-ifaa&prev=si"
+                    target="_blank" 
+                    id="acquisition-link" 
+                    type="button" 
+                    class="restart-quiz-btn m-4 btn acquisition-invite-button yes-btn">Yes Please!</a>
             </div>
         </div>
         <!-- Bottom bar -->
@@ -296,7 +300,7 @@
     </div>
 
     <!-- Button to restart quiz from any page -->
-    <button id="restart-quiz-btn" class="d-none" type="button">Restart quiz</button>
+    <button id="restart-quiz-btn" class="d-none restart-quiz-btn" type="button">Restart quiz</button>
 
     <!-- Spinner, visible when page loading and when ajax in operation for sending email -->
     <div id="spinner-background">

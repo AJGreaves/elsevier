@@ -45,9 +45,10 @@ function startQuiz(){
     return;
 }
 
-$('#restart-quiz-btn').click(function () {
+$('.restart-quiz-btn').click(function () {
     restartQuiz();
 });
+
 
 /**
  * Resets all values, removes any checks on radio input fields,
@@ -307,11 +308,14 @@ function nextBtn() {
     progress++;
     if (activePage <= 3) {
         loadNextQuestion();
-    } else {
+    } else if (activePage == 4) {
         progress = 0;
         finalScore();
         $('#formAnswer').addClass('d-none');
         $('#email-signup-page').removeClass('d-none');
+    } else {
+        $('#email-signup-page').addClass('d-none');
+        $('#acquisition-form-invite').removeClass('d-none');
     }
     return;
 }
@@ -396,7 +400,7 @@ emailSignupForm.addEventListener('submit', (event) => {
         hideLoading();
         alert('Submission successful');
         $('input').val('');
-        location.reload();
+        nextBtn()
     }).fail(function (error) {
         hideLoading();
         console.log('Oops... ' + JSON.stringify(error));
