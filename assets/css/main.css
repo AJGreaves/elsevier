@@ -28,6 +28,14 @@ h5 {
   font-size: 0.9rem;
 }
 
+.intro-info h3 {
+  font-size: 1.8rem;
+}
+
+.intro-info li {
+  font-size: 1.2rem;
+}
+
 #side-info-bar p,
 #side-info-bar a,
 #final-score-bar p {
