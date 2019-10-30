@@ -378,20 +378,13 @@ const emailSignupForm = document.querySelector('#emailSignupForm');
 emailSignupForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    let canContact = 'No thank you.';
-    if ($('#plsContactMe').is(":checked")) {
-        canContact = 'Yes please.';
-    };
-
     const data = {
         service_id: "gmail",
         template_id: "elsevier",
         user_id: "user_CQSk7h9Wyuw2xLhYG0hBX",
         template_params: {
             "firstName": emailSignupForm.firstName.value,
-            "lastName": emailSignupForm.lastName.value,
-            "email": emailSignupForm.email.value,
-            "plsContactMe": canContact
+            "email": emailSignupForm.email.value
         }
     };
     showLoading();
@@ -402,7 +395,6 @@ emailSignupForm.addEventListener('submit', (event) => {
     }).done(function () {
         hideLoading();
         alert('Submission successful');
-        $('input').prop('checked', false);
         $('input').val('');
         location.reload();
     }).fail(function (error) {
