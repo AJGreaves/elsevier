@@ -66,6 +66,20 @@ function restartQuiz() {
     return;
 }
 
+$('#acquisition-link').click(function() {
+    activePage = 1;
+    confident = 0;
+    unsure = 0;
+    numCorrect = 0;
+    progress = 0;
+    $('input').prop('checked', false);
+    setTimeout(function(){ 
+        document.location.href="/elsevier/";; 
+    }, 1000);
+
+    return;
+})
+
 /**
  * Takes the full data from questions.json, finds and returns the object in it with the 
  * id number that matches the page that the user is on.
