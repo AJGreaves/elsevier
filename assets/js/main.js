@@ -38,7 +38,7 @@ $('#start-btn').click(function () {
  * Gets current time to compare with finish time for
  * time taken to complete first question.
  */
-function startQuiz(){
+function startQuiz() {
     $('#start-page').addClass('d-none');
     $('#formAnswer, #restart-quiz-btn').removeClass('d-none');
     startTime = Date.now();
@@ -61,7 +61,8 @@ function restartQuiz() {
     numCorrect = 0;
     progress = 0;
     $('input').prop('checked', false);
-    location.reload();
+    document.location.href="/";
+
     return;
 }
 
@@ -113,23 +114,44 @@ $('#unsure-btn').click(function () {
     return;
 });
 
-/**
- * Listens for when the user clicks one of the two submit buttons for the form. 
- * Stops the submit button from reloading the page. Collects the time right now 
- * and applies it to finishTime. Increases the progress value. Gets the value of 
- * the checked radio and then calls the functions to display the response. 
- */
-formAnswer.addEventListener('submit', (event) => {
-    // prevents default behaviour of submit button to refresh page
-    event.preventDefault();
 
-    finishTime = Date.now();
-    progress++;
-    const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
-    respondAnswer(questionData, givenAnswer);
-    progressBar(progress);
-    return;
-});
+if (formAnswer != null) {
+    /**
+     * Listens for when the user clicks one of the two submit buttons for the form. 
+     * Stops the submit button from reloading the page. Collects the time right now 
+     * and applies it to finishTime. Increases the progress value. Gets the value of 
+     * the checked radio and then calls the functions to display the response. 
+     */
+    formAnswer.addEventListener('submit', (event) => {
+        // prevents default behaviour of submit button to refresh page
+        event.preventDefault();
+
+        finishTime = Date.now();
+        progress++;
+        const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
+        respondAnswer(questionData, givenAnswer);
+        progressBar(progress);
+        return;
+    });
+    /**
+     * Listens for when the user clicks one of the two submit buttons for the form. 
+     * Stops the submit button from reloading the page. Collects the time right now 
+     * and applies it to finishTime. Increases the progress value. Gets the value of 
+     * the checked radio and then calls the functions to display the response. 
+     */
+    formAnswer.addEventListener('submit', (event) => {
+        // prevents default behaviour of submit button to refresh page
+        event.preventDefault();
+
+        finishTime = Date.now();
+        progress++;
+        const givenAnswer = $("input[type='radio'][name='radios']:checked").val();
+        respondAnswer(questionData, givenAnswer);
+        progressBar(progress);
+        return;
+    });
+}
+
 
 /**
  * Compares correct answer with users response and calls the appropriate function 
@@ -219,7 +241,7 @@ function displayOptionInfo(questionData) {
     $('#option5-response-box .choice-response')
         .text(questionData.choiceResponses.option5)
         .removeClass('d-none');
-        
+
     return;
 }
 
@@ -368,45 +390,6 @@ function progressBar(progress) {
     }
     return;
 }
-
-/**
- * Sends email using EmailJS
- */
-
-const emailSignupForm = document.querySelector('#emailSignupForm');
-
-/**
- * Email currently disconnected from elsevier email and redirected to my email. 
- * To change this log into emailjs and update elsevier template with other email.
- */
-emailSignupForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const data = {
-        service_id: "gmail",
-        template_id: "elsevier",
-        user_id: "user_CQSk7h9Wyuw2xLhYG0hBX",
-        template_params: {
-            "firstName": emailSignupForm.firstName.value,
-            "email": emailSignupForm.email.value
-        }
-    };
-    showLoading();
-    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-    }).done(function () {
-        hideLoading();
-        alert('Submission successful');
-        $('input').val('');
-        nextBtn()
-    }).fail(function (error) {
-        hideLoading();
-        console.log('Oops... ' + JSON.stringify(error));
-        alert('Oops something went wrong, please try again.');
-    });
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     hideLoading();
