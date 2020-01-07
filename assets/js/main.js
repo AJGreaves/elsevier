@@ -61,7 +61,7 @@ function restartQuiz() {
     numCorrect = 0;
     progress = 0;
     $('input').prop('checked', false);
-    document.location.href="/elsevier/";
+    document.location.href="/elsevier/"; /* change to just "/" when working locally */
 
     return;
 }
