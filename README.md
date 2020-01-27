@@ -11,9 +11,7 @@ Client requests:
 
 - After Q3 answer is shown, pressing 'next' goes to the email sign up form.
 
-- Collect following data from user: First name, Last name, email address
-
-- Send data to company using EmailJS.
+- Add embedded form for collecting contact details for prize draw.
 
 - Web app is used on an iPad and/or a lower/mid resolution laptop. Mobile responsiveness is not necessary.
 
@@ -69,15 +67,8 @@ In addition, you may also use this section to discuss plans for additional featu
 
 #### Email signup page
 
-- **Sign-up form** collects first name, last name, email address and if the user wishes to be contacted about Elsevier products. All this data is packaged into an email and forwarded to the client each time someone submits a form.
-
-- Links to the privacy policy and terms and conditions are provided with the form. 
-
-- The side info bar displays how many questions out of three the user got correct, the number of answers they were confident of and the number they were unsure of.
-
-- On successfully submitting the email for an alert lets the user know the form was received, and on closing the alert the page is reloaded for the next user. 
-
-- Custom spinner runs while email is being sent.
+- **Sign-up form** Embedded form provided by client.
+- **Test scores on right hand side**
 
 ## Technologies Used
 
